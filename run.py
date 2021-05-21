@@ -1,7 +1,7 @@
 import argparse
 import app.CONFIG as CONFIG
 from app import app
-
+from waitress import serve
 
 if __name__ == "__main__":
 
@@ -33,4 +33,6 @@ if __name__ == "__main__":
     CONFIG.RESIZE_SCALE = args.resize_scale
 
     # run the server
-    app.run(host='0.0.0.0', debug=True)
+    
+    serve(app, host="0.0.0.0", port=8080)
+    # app.run(host='0.0.0.0', debug=True)
